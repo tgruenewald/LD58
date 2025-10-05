@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=4 uid="uid://cbyog2hsvus8d"]
+[gd_scene load_steps=12 format=4 uid="uid://cbyog2hsvus8d"]
 
+[ext_resource type="Script" uid="uid://cpq5o55rbiygh" path="res://scenes/maintest.gd" id="1_5chhc"]
 [ext_resource type="Texture2D" uid="uid://dvx08jag1l4h1" path="res://Sprites/tilemapfinal2.png" id="3_527u3"]
 [ext_resource type="PackedScene" uid="uid://b26a2c78hthis" path="res://scenes/arrow_head.tscn" id="3_yoalb"]
 [ext_resource type="PackedScene" uid="uid://bfoikpoco5b6b" path="res://scenes/death.tscn" id="4_lubut"]
@@ -84,7 +85,8 @@ sources/0 = SubResource("TileSetAtlasSource_527u3")
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5chhc"]
 distance = 83.0
 
-[node name="Node2D" type="Node2D"]
+[node name="MainLevel" type="Node2D"]
+script = ExtResource("1_5chhc")
 
 [node name="tileholder" type="Node2D" parent="."]
 
@@ -114,3 +116,9 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="death"]
 position = Vector2(-33, -8)
 shape = SubResource("WorldBoundaryShape2D_5chhc")
+
+[node name="ReadySetGo" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="timeout" from="ReadySetGo" to="." method="_on_ready_set_go_timeout"]

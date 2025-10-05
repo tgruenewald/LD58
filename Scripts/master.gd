@@ -5,6 +5,8 @@ var timeAdd = 0
 var jumpHeightAdd = 0
 var jumpAdd = 0
 var wallJump = false
+var readyGo = false
+var magnet = 1;
 func addPick ():
 	wallet += 1
 	#print(wallet)
