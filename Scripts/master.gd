@@ -4,6 +4,7 @@ var wallet = 0
 var timeAdd = 0
 var jumpHeightAdd = 0
 var jumpAdd = 0
+var wallJump = false
 func addPick ():
 	wallet += 1
 	#print(wallet)

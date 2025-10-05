@@ -72,9 +72,30 @@ offset_bottom = 39.0
 layout_mode = 2
 text = "doubleJump 1000"
 
+[node name="ColorRect4" type="ColorRect" parent="CanvasLayer"]
+offset_left = 450.0
+offset_top = 208.0
+offset_right = 490.0
+offset_bottom = 248.0
+color = Color(1, 1, 1, 0)
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/ColorRect4"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 3.0
+offset_right = 152.0
+offset_bottom = 43.0
+
+[node name="WallJump" type="Button" parent="CanvasLayer/ColorRect4/MarginContainer"]
+layout_mode = 2
+text = "Wall Jump 1000"
+
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="pressed" from="CanvasLayer/ColorRect/MarginContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="CanvasLayer/ColorRect2/MarginContainer/moreTime" to="." method="_on_more_time_pressed"]
 [connection signal="pressed" from="CanvasLayer/ColorRect3/MarginContainer/DoubleJump" to="." method="_on_double_jump_pressed"]
 [connection signal="pressed" from="CanvasLayer/ColorRect3/MarginContainer/DoubleJump" to="." method="_on_more_time_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect4/MarginContainer/WallJump" to="." method="_on_double_jump_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect4/MarginContainer/WallJump" to="." method="_on_wall_jump_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect4/MarginContainer/WallJump" to="." method="_on_more_time_pressed"]
