@@ -67,3 +67,4 @@ texture_normal = ExtResource("4_oa1go")
 texture_hover = ExtResource("5_tbmy8")
 
 [connection signal="pressed" from="ColorRect/HBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="ColorRect2/MarginContainer/Credits" to="." method="_on_credits_pressed"]
