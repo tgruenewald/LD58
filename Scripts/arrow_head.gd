@@ -34,7 +34,7 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		if direction == 0:
 			animated_sprite.play("default")
-			#hi
+			#hi here
 		else:
 			animated_sprite.play("slither")
 	else:
