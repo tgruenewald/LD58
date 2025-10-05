@@ -13,7 +13,7 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	#print(body)
 	Master.addPick()
 	animation_player.play("PickUp")
+	
 	pass # Replace with function body.
