@@ -1,0 +1,80 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjpb4s2sndwfd"]
+
+[ext_resource type="Texture2D" uid="uid://r3xljmiflptt" path="res://Sprites/prize_counter_.png" id="1_lx5au"]
+[ext_resource type="Script" uid="uid://cdils8eynbqpu" path="res://Scripts/shop.gd" id="1_xfvoa"]
+[ext_resource type="Texture2D" uid="uid://bkbicy7vo0iqm" path="res://Sprites/snekplay - def.png" id="3_032fp"]
+[ext_resource type="Texture2D" uid="uid://bl16w20ytbyaw" path="res://Sprites/snekplay - sel.png" id="4_2fc2m"]
+
+[node name="Shop" type="Node2D"]
+script = ExtResource("1_xfvoa")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(575.677, 320.618)
+scale = Vector2(0.971607, 0.798542)
+texture = ExtResource("1_lx5au")
+
+[node name="Wallet" type="Label" parent="CanvasLayer"]
+offset_left = 91.0
+offset_top = 346.0
+offset_right = 207.0
+offset_bottom = 391.0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = 61.0
+offset_top = 451.0
+offset_right = 172.0
+offset_bottom = 491.0
+color = Color(1, 1, 1, 0)
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/ColorRect"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Play" type="TextureButton" parent="CanvasLayer/ColorRect/MarginContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_032fp")
+texture_hover = ExtResource("4_2fc2m")
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
+offset_left = 174.0
+offset_top = 209.0
+offset_right = 214.0
+offset_bottom = 249.0
+color = Color(1, 1, 1, 0)
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/ColorRect2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="moreTime" type="Button" parent="CanvasLayer/ColorRect2/MarginContainer"]
+layout_mode = 2
+text = "MoreTime 200"
+
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer"]
+offset_left = 175.0
+offset_top = 209.0
+offset_right = 215.0
+offset_bottom = 249.0
+color = Color(1, 1, 1, 0)
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/ColorRect3"]
+layout_mode = 0
+offset_left = 125.0
+offset_top = -1.0
+offset_right = 268.0
+offset_bottom = 39.0
+
+[node name="DoubleJump" type="Button" parent="CanvasLayer/ColorRect3/MarginContainer"]
+layout_mode = 2
+text = "doubleJump 1000"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="pressed" from="CanvasLayer/ColorRect/MarginContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect2/MarginContainer/moreTime" to="." method="_on_more_time_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect3/MarginContainer/DoubleJump" to="." method="_on_double_jump_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect3/MarginContainer/DoubleJump" to="." method="_on_more_time_pressed"]

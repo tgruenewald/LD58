@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbwuipeck4td3"]
+
+[ext_resource type="Texture2D" uid="uid://bkbicy7vo0iqm" path="res://Sprites/snekplay - def.png" id="1_mhnvy"]
+[ext_resource type="Texture2D" uid="uid://bl16w20ytbyaw" path="res://Sprites/snekplay - sel.png" id="2_4ytvr"]
+[ext_resource type="Texture2D" uid="uid://cmcuahn5x3wes" path="res://Sprites/credits2.png" id="3_g3eks"]
+[ext_resource type="Texture2D" uid="uid://bh32n1u3etig1" path="res://Sprites/credits1.png" id="4_v86rl"]
+
+[node name="menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureButton" type="TextureButton" parent="HBoxContainer"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+size_flags_horizontal = 6
+texture_normal = ExtResource("1_mhnvy")
+texture_pressed = ExtResource("2_4ytvr")
+texture_hover = ExtResource("2_4ytvr")
+
+[node name="TextureButton2" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_g3eks")
+texture_hover = ExtResource("4_v86rl")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 79.0
+offset_right = 331.0
+offset_bottom = 258.0
+color = Color(1, 1, 1, 0)

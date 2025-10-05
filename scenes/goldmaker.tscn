@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://brst5tkn87c8w"]
+
+[ext_resource type="Script" uid="uid://bhrjeoy3j3ds2" path="res://Scripts/goldmaker.gd" id="1_i6x5e"]
+
+[node name="Goldmaker" type="Node"]
+script = ExtResource("1_i6x5e")
