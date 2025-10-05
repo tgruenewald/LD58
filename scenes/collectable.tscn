@@ -106,8 +106,8 @@ _data = {
 }
 
 [node name="Collectable" type="Area2D"]
-collision_layer = 4
-collision_mask = 2
+collision_layer = 12
+collision_mask = 10
 script = ExtResource("1_ti8a4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
