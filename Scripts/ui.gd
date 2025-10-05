@@ -3,7 +3,7 @@ extends CanvasLayer
 @onready var money_amount: Label = $MoneyAmount
 @onready var timer: Timer = $Timer
 @onready var time_counter: Label = $TimeCounter
-var timeBase = 60
+var timeBase = 15
 var time
 
 # Called when the node enters the scene tree for the first time.

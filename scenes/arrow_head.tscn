@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b26a2c78hthis"]
+[gd_scene load_steps=16 format=3 uid="uid://b26a2c78hthis"]
 
 [ext_resource type="Script" uid="uid://de0pp0u6sy8uk" path="res://Scripts/arrow_head.gd" id="1_kq400"]
 [ext_resource type="Texture2D" uid="uid://258qrh4j4lcs" path="res://Sprites/Jump_Snake_Eating_Self.png" id="2_j3byl"]
@@ -78,6 +78,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_j3byl"]
 radius = 12.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_k4xi8"]
+radius = 32.0156
+
 [node name="arrowHead" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_kq400")
@@ -111,6 +114,12 @@ shape = SubResource("CircleShape2D_j3byl")
 [node name="Walljumptimer" type="Timer" parent="."]
 wait_time = 0.3
 one_shot = true
+
+[node name="Magnet" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="magnetRad" type="CollisionShape2D" parent="Magnet"]
+shape = SubResource("CircleShape2D_k4xi8")
 
 [connection signal="body_entered" from="Walldetectleft" to="." method="_on_walldetectleft_body_entered"]
 [connection signal="area_entered" from="WallDetectRight" to="." method="_on_wall_detect_right_area_entered"]

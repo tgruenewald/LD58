@@ -1,16 +1,18 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+const SPEED = 600.0
 var JUMP_VELOCITY = -400.0
 var baseJump = 1
 var jump
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var walljumptimer: Timer = $Walljumptimer
+@onready var magnet_rad: CollisionShape2D = $Magnet/magnetRad
 
 func _ready() -> void:
 	jump = baseJump + Master.jumpAdd
-	pass
+	print("hi")
+	magnet_rad.shape.radius *= 1.15 * Master.magnet
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
