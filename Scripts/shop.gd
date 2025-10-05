@@ -30,3 +30,10 @@ func _on_double_jump_pressed() -> void:
 		Master.spend(1000)
 		Master.jumpAdd += 1
 	pass # Replace with function body.
+
+
+func _on_wall_jump_pressed() -> void:
+	if Master.getWallet() >= 0:
+		Master.spend(0)
+		Master.wallJump = true
+	pass # Replace with function body.

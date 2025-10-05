@@ -1,10 +1,9 @@
-[gd_scene load_steps=12 format=4 uid="uid://cbyog2hsvus8d"]
+[gd_scene load_steps=11 format=4 uid="uid://cbyog2hsvus8d"]
 
 [ext_resource type="Texture2D" uid="uid://dvx08jag1l4h1" path="res://Sprites/tilemapfinal2.png" id="3_527u3"]
 [ext_resource type="PackedScene" uid="uid://b26a2c78hthis" path="res://scenes/arrow_head.tscn" id="3_yoalb"]
 [ext_resource type="PackedScene" uid="uid://bfoikpoco5b6b" path="res://scenes/death.tscn" id="4_lubut"]
 [ext_resource type="PackedScene" uid="uid://brst5tkn87c8w" path="res://scenes/goldmaker.tscn" id="5_lubut"]
-[ext_resource type="PackedScene" uid="uid://dtlacn76rjbe1" path="res://scenes/music.tscn" id="6_5chhc"]
 [ext_resource type="PackedScene" uid="uid://c5b6euyi44ilx" path="res://scenes/ui.tscn" id="7_rti3c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yoalb"]
@@ -102,8 +101,6 @@ position = Vector2(21, -75)
 position = Vector2(-21, 75)
 
 [node name="Goldmaker" parent="." instance=ExtResource("5_lubut")]
-
-[node name="music" parent="." instance=ExtResource("6_5chhc")]
 
 [node name="UI" parent="." instance=ExtResource("7_rti3c")]
 

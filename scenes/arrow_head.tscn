@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b26a2c78hthis"]
+[gd_scene load_steps=15 format=3 uid="uid://b26a2c78hthis"]
 
 [ext_resource type="Script" uid="uid://de0pp0u6sy8uk" path="res://Scripts/arrow_head.gd" id="1_kq400"]
 [ext_resource type="Texture2D" uid="uid://258qrh4j4lcs" path="res://Sprites/Jump_Snake_Eating_Self.png" id="2_j3byl"]
@@ -75,6 +75,9 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_j3byl"]
+radius = 12.0
+
 [node name="arrowHead" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_kq400")
@@ -88,3 +91,28 @@ sprite_frames = SubResource("SpriteFrames_j3byl")
 animation = &"Jump"
 autoplay = "default"
 frame_progress = 0.254185
+
+[node name="Walldetectleft" type="Area2D" parent="."]
+position = Vector2(-32, 0)
+collision_layer = 2
+
+[node name="Left" type="CollisionShape2D" parent="Walldetectleft"]
+position = Vector2(-13, 0)
+shape = SubResource("CircleShape2D_j3byl")
+
+[node name="WallDetectRight" type="Area2D" parent="."]
+position = Vector2(38, 0)
+collision_layer = 2
+
+[node name="Right" type="CollisionShape2D" parent="WallDetectRight"]
+position = Vector2(11, -1)
+shape = SubResource("CircleShape2D_j3byl")
+
+[node name="Walljumptimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="body_entered" from="Walldetectleft" to="." method="_on_walldetectleft_body_entered"]
+[connection signal="area_entered" from="WallDetectRight" to="." method="_on_wall_detect_right_area_entered"]
+[connection signal="body_entered" from="WallDetectRight" to="." method="_on_wall_detect_right_body_entered"]
+[connection signal="timeout" from="Walljumptimer" to="." method="_on_walljumptimer_timeout"]

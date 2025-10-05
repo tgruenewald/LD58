@@ -6,6 +6,7 @@ var JUMP_VELOCITY = -400.0
 var baseJump = 1
 var jump
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var walljumptimer: Timer = $Walljumptimer
 
 func _ready() -> void:
 	jump = baseJump + Master.jumpAdd
@@ -21,7 +22,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and jump > 0:
 		velocity.y = JUMP_VELOCITY
 		jump -= 1
-		print(jump)
+		#print(jump)
 	if is_on_floor():
 		jump = baseJump + Master.jumpAdd
 	# Get the input direction and handle the movement/deceleration.
@@ -44,5 +45,28 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
-
+	if Input.is_key_pressed(KEY_R):
+		get_tree().change_scene_to_file("res://scenes/shop.tscn")
 	move_and_slide()
+	
+
+
+func _on_walljumptimer_timeout() -> void:
+	jump -= 1
+	pass # Replace with function body.
+
+
+func _on_walldetectleft_body_entered(body: Node2D) -> void:
+	print("can walljump")
+	if Master.wallJump:
+		jump += 1
+		walljumptimer.start()
+	pass # Replace with function body.
+
+
+func _on_wall_detect_right_body_entered(body: Node2D) -> void:
+	print("can walljump")
+	if Master.wallJump:
+		jump += 1
+		walljumptimer.start()
+	pass # Replace with function body.
