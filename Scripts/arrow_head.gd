@@ -64,8 +64,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
-	if Input.is_key_pressed(KEY_Z):
-		get_tree().change_scene_to_file("res://scenes/shop.tscn")
 	move_and_slide()
 	
 
