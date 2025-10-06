@@ -62,10 +62,22 @@ theme_override_font_sizes/font_size = 48
 text = "Terry - Developer"
 vertical_alignment = 1
 
+[node name="ArrowheadLabel" type="Label" parent="CreditsList"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Arrowhead - the snake"
+vertical_alignment = 1
+
+[node name="VictoriaLabel" type="Label" parent="CreditsList"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Victoria - snake wrangler"
+vertical_alignment = 1
+
 [node name="BackButton" type="Button" parent="."]
-offset_left = -400.0
-offset_top = 20.0
-offset_right = -340.0
-offset_bottom = 60.0
+offset_left = -406.0
+offset_top = 117.0
+offset_right = -305.0
+offset_bottom = 175.0
 theme_override_font_sizes/font_size = 36
 text = "BACK"
