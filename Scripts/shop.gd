@@ -6,12 +6,18 @@ extends Node2D
 @onready var doubleJump: TextureButton = $CanvasLayer/ColorRect3/MarginContainer/DoubleJump
 @onready var wallJump: TextureButton = $CanvasLayer/ColorRect4/MarginContainer/WallJump
 @onready var magnet: TextureButton = $CanvasLayer/ColorRect5/MarginContainer/Magnet
+@onready var background: Sprite2D = $CanvasLayer/Sprite2D
+@onready var canvasLayer: CanvasLayer = $CanvasLayer
 
 var i_key_was_pressed = false
+var base_window_size = Vector2(1152, 648)  # Base resolution for scaling
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	# Connect to viewport size changed signal
+	get_viewport().size_changed.connect(_on_viewport_size_changed)
+	# Initial scaling
+	_on_viewport_size_changed()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -92,3 +98,17 @@ func _on_magnet_pressed() -> void:
 	else:
 		print("Not enough money for Magnet! Need $500, have $", Master.getWallet())
 	pass # Replace with function body.
+
+func _on_viewport_size_changed() -> void:
+	var current_size = get_viewport().get_visible_rect().size
+	var scale_factor = min(current_size.x / base_window_size.x, current_size.y / base_window_size.y)
+	
+	# Scale the entire CanvasLayer
+	canvasLayer.scale = Vector2(scale_factor, scale_factor)
+	
+	# Center the content
+	var scaled_size = base_window_size * scale_factor
+	var offset = (current_size - scaled_size) / 2
+	canvasLayer.offset = offset
+	
+	print("Shop scaled to: ", scale_factor, "x, Window size: ", current_size)

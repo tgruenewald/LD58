@@ -72,22 +72,29 @@ func _physics_process(delta: float) -> void:
 
 func _on_walljumptimer_timeout() -> void:
 	jump -= 1
+	print("Wall jump timer expired. Jumps remaining: ", jump)
 	pass # Replace with function body.
 
 
 func _on_walldetectleft_body_entered(body: Node2D) -> void:
-	print("can walljump")
+	print("Touched LEFT wall!")
 	if Master.wallJump:
 		jump += 1
 		walljumptimer.start()
+		print("Wall jump available! Extra jump granted. Total jumps: ", jump)
+	else:
+		print("Wall jump not purchased - no extra jump")
 	pass # Replace with function body.
 
 
 func _on_wall_detect_right_body_entered(body: Node2D) -> void:
-	print("can walljump")
+	print("Touched RIGHT wall!")
 	if Master.wallJump:
 		jump += 1
 		walljumptimer.start()
+		print("Wall jump available! Extra jump granted. Total jumps: ", jump)
+	else:
+		print("Wall jump not purchased - no extra jump")
 
 # Mobile touch input handling
 func _input(event: InputEvent) -> void:
