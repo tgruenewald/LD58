@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dtlacn76rjbe1"]
+[gd_scene load_steps=3 format=3 uid="uid://dtlacn76rjbe1"]
 
 [ext_resource type="AudioStream" uid="uid://cdtt82rhkou2" path="res://sound/Jaunty.mp3" id="1_05ggv"]
+[ext_resource type="Script" uid="uid://dy4kr14iknx0w" path="res://Scripts/music.gd" id="2_music"]
 
 [node name="music" type="AudioStreamPlayer"]
 stream = ExtResource("1_05ggv")
 autoplay = true
 bus = &"music"
+script = ExtResource("2_music")

@@ -22,9 +22,8 @@ Music="*res://scenes/music.tscn"
 
 [display]
 
+window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
-window/handheld/orientation/portrait=false
-window/handheld/orientation/landscape=true
 
 [input]
 
