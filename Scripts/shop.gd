@@ -19,8 +19,8 @@ func _on_play_pressed() -> void:
 
 
 func _on_more_time_pressed() -> void:
-	if Master.getWallet() >= 150:
-		Master.spend(150)
+	if Master.getWallet() >= 100:
+		Master.spend(100)
 		Master.timeAdd += 15
 	pass # Replace with function body.
 
@@ -40,7 +40,7 @@ func _on_wall_jump_pressed() -> void:
 
 
 func _on_magnet_pressed() -> void:
-	if Master.getWallet() >= 100:
-		Master.spend(100)
+	if Master.getWallet() >= 500:
+		Master.spend(500)
 		Master.magnet += 1
 	pass # Replace with function body.
