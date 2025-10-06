@@ -9,3 +9,5 @@ With upgrades like **Double Jump**, **Wall Jump**, **Magnet Power**, and **More 
 ---
 
 *Made for Ludum Dare 58 - "Win Win Win"*
+
+https://ldjam.com/events/ludum-dare/58/win-win-win
