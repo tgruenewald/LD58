@@ -31,14 +31,19 @@ func _process(delta: float) -> void:
 	var viewport = get_viewport()
 	if viewport:
 		var screen_size = viewport.get_visible_rect().size
-		var bottom_y = screen_size.y - 100  # 100 pixels from bottom (raised up)
+		var bottom_y = screen_size.y - 150  # 150 pixels from bottom (moved up much higher)
 		var center_x = screen_size.x / 2
 		
-		# Centered positioning (accounting for element widths)
+		# Set scale for score and timer (1.5x bigger, using cleaner scale)
+		money_amount.scale = Vector2(5.0, 5.0)  # Reduced from 6.0 to 5.0 for less fuzziness
+		time_counter.scale = Vector2(5.0, 5.0)  # Reduced from 6.0 to 5.0 for less fuzziness
+		
+		# Centered positioning (accounting for element widths and scale)
 		# Shifted left to account for the actual element sizes
-		money_amount.position = Vector2(center_x - 300, bottom_y)
-		time_counter.position = Vector2(center_x - 125, bottom_y)
-		store_button.position = Vector2(center_x + 25 - 50, bottom_y)  # Shift button left by half its width
+		# Adjusted Y position to account for the larger scale
+		money_amount.position = Vector2(center_x - 350, bottom_y - 25)  # Moved further left
+		time_counter.position = Vector2(center_x - 175, bottom_y - 25)  # Moved further left
+		store_button.position = Vector2(center_x - 25, bottom_y)  # Moved left to balance the group
 	
 	# Add hover effect to store button
 	if store_button.is_hovered():
