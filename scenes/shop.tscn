@@ -111,3 +111,11 @@ layout_mode = 2
 
 [connection signal="pressed" from="CanvasLayer/ColorRect/MarginContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="CanvasLayer/ColorRect3/MarginContainer/DoubleJump" to="." method="_on_double_jump_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect3/MarginContainer/DoubleJump" to="." method="_on_more_time_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect4/MarginContainer/WallJump" to="." method="_on_double_jump_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect4/MarginContainer/WallJump" to="." method="_on_more_time_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect4/MarginContainer/WallJump" to="." method="_on_wall_jump_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect5/MarginContainer/Magnet" to="." method="_on_double_jump_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect5/MarginContainer/Magnet" to="." method="_on_more_time_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect5/MarginContainer/Magnet" to="." method="_on_wall_jump_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect5/MarginContainer/Magnet" to="." method="_on_magnet_pressed"]
