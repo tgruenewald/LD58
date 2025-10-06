@@ -23,6 +23,13 @@ Music="*res://scenes/music.tscn"
 [display]
 
 window/stretch/aspect="expand"
+window/handheld/orientation/portrait=false
+window/handheld/orientation/landscape=true
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
 
 [input]
 
