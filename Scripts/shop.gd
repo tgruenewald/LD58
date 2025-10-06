@@ -15,6 +15,16 @@ var base_window_size = Vector2(1152, 648)  # Base resolution for scaling
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# Make the wallet label much bigger
+	wallet.add_theme_font_size_override("font_size", 72)
+	
+	# Center the wallet label between Play and Quit buttons
+	# Play is at x: 61, Quit is at x: 1050
+	# Center would be around x: 555 (middle of 1152 base width)
+	# Y: 451 (same as Play and Quit buttons)
+	wallet.position = Vector2(480, 451)
+	wallet.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	
 	# Connect to viewport size changed signal
 	get_viewport().size_changed.connect(_on_viewport_size_changed)
 	# Initial scaling
