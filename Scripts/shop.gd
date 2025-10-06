@@ -10,6 +10,10 @@ extends Node2D
 @onready var background: Sprite2D = $CanvasLayer/Sprite2D
 @onready var canvasLayer: CanvasLayer = $CanvasLayer
 
+# Debug settings - set to false to disable cheat codes
+const DEBUG_MODE = false
+
+var x_key_was_pressed = false
 var base_window_size = Vector2(1152, 648)  # Base resolution for scaling
 
 # Called when the node enters the scene tree for the first time.
@@ -37,6 +41,16 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	wallet.text = "$ " +  str(Master.getWallet())
+	
+	# Debug: Press 'x' to add money for testing (only if DEBUG_MODE is enabled)
+	if DEBUG_MODE:
+		if Input.is_physical_key_pressed(KEY_X):
+			if not x_key_was_pressed:
+				Master.wallet += 100
+				print("Debug: Added 100 points. Total: ", Master.getWallet())
+				x_key_was_pressed = true
+		else:
+			x_key_was_pressed = false
 	
 	# Add hover effects to shelf buttons
 	if moreTime.is_hovered():
