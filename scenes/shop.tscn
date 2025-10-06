@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://cjpb4s2sndwfd"]
+[gd_scene load_steps=9 format=3 uid="uid://cjpb4s2sndwfd"]
 
 [ext_resource type="Texture2D" uid="uid://r3xljmiflptt" path="res://Sprites/prize_counter_.png" id="1_lx5au"]
 [ext_resource type="Script" uid="uid://cdils8eynbqpu" path="res://Scripts/shop.gd" id="1_xfvoa"]
 [ext_resource type="Texture2D" uid="uid://bkbicy7vo0iqm" path="res://Sprites/snekplay - def.png" id="3_032fp"]
 [ext_resource type="Texture2D" uid="uid://bl16w20ytbyaw" path="res://Sprites/snekplay - sel.png" id="4_2fc2m"]
 [ext_resource type="Texture2D" uid="uid://crjpou38rf485" path="res://Sprites/Double_Jump.png" id="5_2fc2m"]
+[ext_resource type="Texture2D" uid="uid://bx37xnath43m2" path="res://Sprites/Magnet.png" id="6_magnet"]
+[ext_resource type="Texture2D" uid="uid://byx8y1bbltobr" path="res://Sprites/Wall_Jump.png" id="7_walljump"]
+[ext_resource type="Texture2D" uid="uid://cfoyvslnx0na6" path="res://Sprites/More_Time_Sprite.png" id="8_moretime"]
 
 [node name="Shop" type="Node2D"]
 script = ExtResource("1_xfvoa")
@@ -41,81 +44,83 @@ texture_normal = ExtResource("3_032fp")
 texture_hover = ExtResource("4_2fc2m")
 
 [node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
-offset_left = 174.0
-offset_top = 209.0
-offset_right = 214.0
-offset_bottom = 249.0
+offset_left = 160.0
+offset_top = 180.0
+offset_right = 210.0
+offset_bottom = 230.0
 color = Color(1, 1, 1, 0)
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/ColorRect2"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 50.0
+offset_bottom = 50.0
 
 [node name="moreTime" type="TextureButton" parent="CanvasLayer/ColorRect2/MarginContainer"]
+modulate = Color(1.2, 1.2, 1.2, 1)
 layout_mode = 2
+texture_normal = ExtResource("8_moretime")
+texture_pressed = ExtResource("8_moretime")
+texture_hover = ExtResource("8_moretime")
+stretch_mode = 5
 
 [node name="ColorRect3" type="ColorRect" parent="CanvasLayer"]
-offset_left = 32.0
-offset_top = 279.0
-offset_right = 72.0
-offset_bottom = 319.0
+offset_left = 540.0
+offset_top = 180.0
+offset_right = 590.0
+offset_bottom = 230.0
 color = Color(1, 1, 1, 0)
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/ColorRect3"]
 layout_mode = 0
-offset_left = 125.0
-offset_top = -1.0
-offset_right = 268.0
-offset_bottom = 39.0
+offset_right = 50.0
+offset_bottom = 50.0
 
 [node name="DoubleJump" type="TextureButton" parent="CanvasLayer/ColorRect3/MarginContainer"]
 layout_mode = 2
 texture_normal = ExtResource("5_2fc2m")
+texture_hover = ExtResource("5_2fc2m")
+stretch_mode = 5
 
 [node name="ColorRect4" type="ColorRect" parent="CanvasLayer"]
-offset_left = 450.0
-offset_top = 208.0
-offset_right = 490.0
-offset_bottom = 248.0
+offset_left = 160.0
+offset_top = 280.0
+offset_right = 210.0
+offset_bottom = 330.0
 color = Color(1, 1, 1, 0)
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/ColorRect4"]
 layout_mode = 0
-offset_left = 9.0
-offset_top = 3.0
-offset_right = 152.0
-offset_bottom = 43.0
+offset_right = 50.0
+offset_bottom = 50.0
 
 [node name="WallJump" type="TextureButton" parent="CanvasLayer/ColorRect4/MarginContainer"]
 layout_mode = 2
+texture_normal = ExtResource("7_walljump")
+texture_hover = ExtResource("7_walljump")
+stretch_mode = 5
 
 [node name="ColorRect5" type="ColorRect" parent="CanvasLayer"]
-offset_left = 616.0
-offset_top = 210.0
-offset_right = 656.0
-offset_bottom = 250.0
+offset_left = 540.0
+offset_top = 280.0
+offset_right = 590.0
+offset_bottom = 330.0
 color = Color(1, 1, 1, 0)
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/ColorRect5"]
 layout_mode = 0
-offset_left = 9.0
-offset_top = 3.0
-offset_right = 152.0
-offset_bottom = 43.0
+offset_right = 50.0
+offset_bottom = 50.0
 
 [node name="Magnet" type="TextureButton" parent="CanvasLayer/ColorRect5/MarginContainer"]
 layout_mode = 2
+texture_normal = ExtResource("6_magnet")
+texture_hover = ExtResource("6_magnet")
+stretch_mode = 5
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="pressed" from="CanvasLayer/ColorRect/MarginContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect2/MarginContainer/moreTime" to="." method="_on_more_time_pressed"]
 [connection signal="pressed" from="CanvasLayer/ColorRect3/MarginContainer/DoubleJump" to="." method="_on_double_jump_pressed"]
-[connection signal="pressed" from="CanvasLayer/ColorRect3/MarginContainer/DoubleJump" to="." method="_on_more_time_pressed"]
-[connection signal="pressed" from="CanvasLayer/ColorRect4/MarginContainer/WallJump" to="." method="_on_double_jump_pressed"]
-[connection signal="pressed" from="CanvasLayer/ColorRect4/MarginContainer/WallJump" to="." method="_on_more_time_pressed"]
 [connection signal="pressed" from="CanvasLayer/ColorRect4/MarginContainer/WallJump" to="." method="_on_wall_jump_pressed"]
-[connection signal="pressed" from="CanvasLayer/ColorRect5/MarginContainer/Magnet" to="." method="_on_double_jump_pressed"]
-[connection signal="pressed" from="CanvasLayer/ColorRect5/MarginContainer/Magnet" to="." method="_on_more_time_pressed"]
-[connection signal="pressed" from="CanvasLayer/ColorRect5/MarginContainer/Magnet" to="." method="_on_wall_jump_pressed"]
 [connection signal="pressed" from="CanvasLayer/ColorRect5/MarginContainer/Magnet" to="." method="_on_magnet_pressed"]
