@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://vndmqgxdor5r"]
+[gd_scene load_steps=8 format=3 uid="uid://vndmqgxdor5r"]
 
 [ext_resource type="Texture2D" uid="uid://bef8arj7ss30b" path="res://Sprites/title.png" id="1_l6cm7"]
 [ext_resource type="Script" uid="uid://b07uj88xstky" path="res://Scripts/main_menu.gd" id="1_rtw2f"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bl16w20ytbyaw" path="res://Sprites/snekplay - sel.png" id="3_rtw2f"]
 [ext_resource type="Texture2D" uid="uid://cmcuahn5x3wes" path="res://Sprites/credits2.png" id="4_oa1go"]
 [ext_resource type="Texture2D" uid="uid://bh32n1u3etig1" path="res://Sprites/credits1.png" id="5_tbmy8"]
+[ext_resource type="Texture2D" uid="uid://v11ycmv8wvlv" path="res://Sprites/winwinwin_title.png" id="6_title"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_rtw2f")
@@ -17,15 +18,10 @@ texture = ExtResource("1_l6cm7")
 
 [node name="Camera2D" type="Camera2D" parent="Sprite2D"]
 
-[node name="TitleLabel" type="Label" parent="."]
-offset_left = -700.0
-offset_top = -400.0
-offset_right = -560.0
-offset_bottom = -360.0
-theme_override_font_sizes/font_size = 96
-text = "WIN WIN WIN"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="TitleImage" type="Sprite2D" parent="."]
+position = Vector2(-368, -333)
+scale = Vector2(0.921296, 0.648148)
+texture = ExtResource("6_title")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -696.0
@@ -43,11 +39,6 @@ offset_bottom = 40.0
 layout_mode = 2
 texture_normal = ExtResource("2_8ln24")
 texture_hover = ExtResource("3_rtw2f")
-
-[node name="Quit" type="MenuButton" parent="ColorRect/HBoxContainer"]
-layout_mode = 2
-text = "Quit
-"
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 offset_left = -122.0

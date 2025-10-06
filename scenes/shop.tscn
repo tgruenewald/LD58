@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cjpb4s2sndwfd"]
+[gd_scene load_steps=10 format=3 uid="uid://cjpb4s2sndwfd"]
 
 [ext_resource type="Texture2D" uid="uid://r3xljmiflptt" path="res://Sprites/prize_counter_.png" id="1_lx5au"]
 [ext_resource type="Script" uid="uid://cdils8eynbqpu" path="res://Scripts/shop.gd" id="1_xfvoa"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bx37xnath43m2" path="res://Sprites/Magnet.png" id="6_magnet"]
 [ext_resource type="Texture2D" uid="uid://byx8y1bbltobr" path="res://Sprites/Wall_Jump.png" id="7_walljump"]
 [ext_resource type="Texture2D" uid="uid://cfoyvslnx0na6" path="res://Sprites/More_Time_Sprite.png" id="8_moretime"]
+[ext_resource type="Texture2D" uid="uid://d4fxhdx62lmdb" path="res://Sprites/Quit.png" id="9_quit"]
 
 [node name="Shop" type="Node2D"]
 script = ExtResource("1_xfvoa")
@@ -117,6 +118,24 @@ texture_normal = ExtResource("6_magnet")
 texture_hover = ExtResource("6_magnet")
 stretch_mode = 5
 
+[node name="ColorRect6" type="ColorRect" parent="CanvasLayer"]
+offset_left = 1050.0
+offset_top = 451.0
+offset_right = 1161.0
+offset_bottom = 491.0
+color = Color(1, 1, 1, 0)
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/ColorRect6"]
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 50.0
+
+[node name="Quit" type="TextureButton" parent="CanvasLayer/ColorRect6/MarginContainer"]
+layout_mode = 2
+texture_normal = ExtResource("9_quit")
+texture_hover = ExtResource("9_quit")
+stretch_mode = 5
+
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="pressed" from="CanvasLayer/ColorRect/MarginContainer/Play" to="." method="_on_play_pressed"]
@@ -124,3 +143,4 @@ stretch_mode = 5
 [connection signal="pressed" from="CanvasLayer/ColorRect3/MarginContainer/DoubleJump" to="." method="_on_double_jump_pressed"]
 [connection signal="pressed" from="CanvasLayer/ColorRect4/MarginContainer/WallJump" to="." method="_on_wall_jump_pressed"]
 [connection signal="pressed" from="CanvasLayer/ColorRect5/MarginContainer/Magnet" to="." method="_on_magnet_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect6/MarginContainer/Quit" to="." method="_on_quit_pressed"]

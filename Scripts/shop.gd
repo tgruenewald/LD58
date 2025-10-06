@@ -6,6 +6,7 @@ extends Node2D
 @onready var doubleJump: TextureButton = $CanvasLayer/ColorRect3/MarginContainer/DoubleJump
 @onready var wallJump: TextureButton = $CanvasLayer/ColorRect4/MarginContainer/WallJump
 @onready var magnet: TextureButton = $CanvasLayer/ColorRect5/MarginContainer/Magnet
+@onready var quit: TextureButton = $CanvasLayer/ColorRect6/MarginContainer/Quit
 @onready var background: Sprite2D = $CanvasLayer/Sprite2D
 @onready var canvasLayer: CanvasLayer = $CanvasLayer
 
@@ -57,6 +58,11 @@ func _process(delta: float) -> void:
 		magnet.modulate = Color(1.2, 1.2, 1.2, 1)
 	else:
 		magnet.modulate = Color(1, 1, 1, 1)
+		
+	if quit.is_hovered():
+		quit.modulate = Color(1.2, 1.2, 1.2, 1)
+	else:
+		quit.modulate = Color(1, 1, 1, 1)
 
 
 func _on_play_pressed() -> void:
@@ -137,3 +143,15 @@ func enable_web_audio() -> void:
 	audio_player.queue_free()
 	
 	print("Web audio context enabled")
+
+func _on_quit_pressed() -> void:
+	# Reset game state
+	Master.wallet = 0
+	Master.timeAdd = 0
+	Master.jumpAdd = 0
+	Master.wallJump = false
+	Master.magnet = 0
+	print("Game reset! Returning to main menu...")
+	# Go back to title screen
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	pass # Replace with function body.
