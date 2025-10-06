@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="WIN WIN WIN"
-run/main_scene="uid://cbyog2hsvus8d"
+run/main_scene="uid://vndmqgxdor5r"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -19,3 +19,8 @@ config/icon="res://icon.svg"
 
 Master="*res://scenes/master.tscn"
 Music="*res://scenes/music.tscn"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
