@@ -43,7 +43,8 @@ func _process(delta: float) -> void:
 		# Adjusted Y position to account for the larger scale
 		money_amount.position = Vector2(center_x - 350, bottom_y - 25)  # Moved further left
 		time_counter.position = Vector2(center_x - 175, bottom_y - 25)  # Moved further left
-		store_button.position = Vector2(center_x - 25, bottom_y)  # Moved left to balance the group
+		# Store button is now 2x scale (200x100 pixels), so shift left by 100 to center it
+		store_button.position = Vector2(center_x - 125, bottom_y - 25)  # Adjusted for larger button size
 	
 	# Add hover effect to store button
 	if store_button.is_hovered():
