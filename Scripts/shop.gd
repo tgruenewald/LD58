@@ -11,7 +11,7 @@ extends Node2D
 @onready var canvasLayer: CanvasLayer = $CanvasLayer
 
 # Debug settings - set to false to disable cheat codes
-const DEBUG_MODE = false
+const DEBUG_MODE = true
 
 var x_key_was_pressed = false
 var base_window_size = Vector2(1152, 648)  # Base resolution for scaling
@@ -80,6 +80,7 @@ func _process(delta: float) -> void:
 
 
 func _on_play_pressed() -> void:
+	Master.incrementRound()
 	get_tree().change_scene_to_file("res://scenes/maintest.tscn")
 	pass # Replace with function body.
 
@@ -161,6 +162,8 @@ func enable_web_audio() -> void:
 func _on_quit_pressed() -> void:
 	# Reset game state
 	Master.wallet = 0
+	Master.totalAccumulated = 0
+	Master.currentRound = 1
 	Master.timeAdd = 0
 	Master.jumpAdd = 0
 	Master.wallJump = false
