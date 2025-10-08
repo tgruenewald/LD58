@@ -44,8 +44,8 @@ func _process(delta: float) -> void:
 		# Centered positioning (accounting for element widths and scale)
 		# Shifted left to account for the actual element sizes
 		# Adjusted Y position to account for the larger scale
-		money_amount.position = Vector2(center_x - 350, bottom_y - 25)  # Moved further left
-		time_counter.position = Vector2(center_x - 175, bottom_y - 25)  # Moved further left
+		money_amount.position = Vector2(center_x - 450, bottom_y - 25)  # Moved even further left to prevent overlap
+		time_counter.position = Vector2(center_x - 250, bottom_y - 25)  # Adjusted for better spacing
 		# Store button is now 2x scale (200x100 pixels), so shift left by 100 to center it
 		store_button.position = Vector2(center_x - 125, bottom_y - 25)  # Adjusted for larger button size
 		# Total accumulated below the store button
