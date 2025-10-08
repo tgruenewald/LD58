@@ -4,6 +4,7 @@ extends CanvasLayer
 @onready var timer: Timer = $Timer
 @onready var time_counter: Label = $TimeCounter
 @onready var store_button: TextureButton = $StoreButton
+@onready var total_accumulated: Label = $TotalAccumulated
 var timeBase = 15
 var time
 var player_node: Node2D
@@ -23,6 +24,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	money_amount.text = "$" + str(Master.getWallet())
 	time_counter.text = str(time)
+	total_accumulated.text = "Total: $" + str(Master.getTotalAccumulated())
 	if time <= 0:
 		time = timeBase
 		get_tree().change_scene_to_file("res://scenes/shop.tscn")
@@ -37,6 +39,7 @@ func _process(delta: float) -> void:
 		# Set scale for score and timer (1.5x bigger, using cleaner scale)
 		money_amount.scale = Vector2(5.0, 5.0)  # Reduced from 6.0 to 5.0 for less fuzziness
 		time_counter.scale = Vector2(5.0, 5.0)  # Reduced from 6.0 to 5.0 for less fuzziness
+		total_accumulated.scale = Vector2(3.0, 3.0)  # Smaller scale for total
 		
 		# Centered positioning (accounting for element widths and scale)
 		# Shifted left to account for the actual element sizes
@@ -45,6 +48,8 @@ func _process(delta: float) -> void:
 		time_counter.position = Vector2(center_x - 175, bottom_y - 25)  # Moved further left
 		# Store button is now 2x scale (200x100 pixels), so shift left by 100 to center it
 		store_button.position = Vector2(center_x - 125, bottom_y - 25)  # Adjusted for larger button size
+		# Total accumulated below the store button
+		total_accumulated.position = Vector2(center_x - 100, bottom_y + 75)  # Below store button
 	
 	# Add hover effect to store button
 	if store_button.is_hovered():

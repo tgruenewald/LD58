@@ -1,6 +1,7 @@
 extends Node
 
 var wallet = 0
+var totalAccumulated = 0
 var timeAdd = 0
 var jumpHeightAdd = 0
 var jumpAdd = 0
@@ -9,10 +10,13 @@ var readyGo = false
 var magnet = 1;
 func addPick ():
 	wallet += 1
+	totalAccumulated += 1
 	#print(wallet)
 	
 func getWallet():
 	return wallet
+func getTotalAccumulated():
+	return totalAccumulated
 func spend(amount: int):
 	wallet -= amount
 	pass
