@@ -11,7 +11,7 @@ extends Node2D
 @onready var canvasLayer: CanvasLayer = $CanvasLayer
 
 # Debug settings - set to false to disable cheat codes
-const DEBUG_MODE = false
+const DEBUG_MODE = true
 
 var x_key_was_pressed = false
 var base_window_size = Vector2(1152, 648)  # Base resolution for scaling
@@ -28,6 +28,9 @@ func _ready() -> void:
 	wallet.position = Vector2(480, 451)
 	wallet.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	
+	# Ensure CanvasLayer properly handles touch input with transforms
+	canvasLayer.follow_viewport_enabled = false
+	
 	# Connect to viewport size changed signal
 	get_viewport().size_changed.connect(_on_viewport_size_changed)
 	# Initial scaling
@@ -42,11 +45,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	wallet.text = "$ " +  str(Master.getWallet())
 	
-	# Debug: Press 'x' to add money for testing (only if DEBUG_MODE is enabled)
+	# Debug: Press 'o' to add money for testing (only if DEBUG_MODE is enabled)
 	if DEBUG_MODE:
-		if Input.is_physical_key_pressed(KEY_X):
+		if Input.is_physical_key_pressed(KEY_O):
 			if not x_key_was_pressed:
 				Master.wallet += 100
+				Master.totalAccumulated += 100
 				print("Debug: Added 100 points. Total: ", Master.getWallet())
 				x_key_was_pressed = true
 		else:
@@ -80,6 +84,7 @@ func _process(delta: float) -> void:
 
 
 func _on_play_pressed() -> void:
+	Master.incrementRound()
 	get_tree().change_scene_to_file("res://scenes/maintest.tscn")
 	pass # Replace with function body.
 
@@ -127,13 +132,14 @@ func _on_viewport_size_changed() -> void:
 	var current_size = get_viewport().get_visible_rect().size
 	var scale_factor = min(current_size.x / base_window_size.x, current_size.y / base_window_size.y)
 	
-	# Scale the entire CanvasLayer
-	canvasLayer.scale = Vector2(scale_factor, scale_factor)
-	
-	# Center the content
+	# Use transform instead of scale/offset for proper input handling on mobile
 	var scaled_size = base_window_size * scale_factor
 	var offset = (current_size - scaled_size) / 2
-	canvasLayer.offset = offset
+	
+	var transform = Transform2D()
+	transform = transform.scaled(Vector2(scale_factor, scale_factor))
+	transform.origin = offset
+	canvasLayer.transform = transform
 	
 	print("Shop scaled to: ", scale_factor, "x, Window size: ", current_size)
 
@@ -161,6 +167,8 @@ func enable_web_audio() -> void:
 func _on_quit_pressed() -> void:
 	# Reset game state
 	Master.wallet = 0
+	Master.totalAccumulated = 0
+	Master.currentRound = 1
 	Master.timeAdd = 0
 	Master.jumpAdd = 0
 	Master.wallJump = false
