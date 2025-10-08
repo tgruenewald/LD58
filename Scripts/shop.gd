@@ -47,6 +47,7 @@ func _process(delta: float) -> void:
 		if Input.is_physical_key_pressed(KEY_X):
 			if not x_key_was_pressed:
 				Master.wallet += 100
+				Master.totalAccumulated += 100
 				print("Debug: Added 100 points. Total: ", Master.getWallet())
 				x_key_was_pressed = true
 		else:
